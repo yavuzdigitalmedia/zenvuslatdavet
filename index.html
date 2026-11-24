@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="tr" data-theme="venue">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zen Vuslat D&#252;ğ&#252;n &amp; Davet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf8f3;--surface:#ffffff;--ink:#1f1b16;--muted:#6b6258;--accent:#a8842c;--accent-ink:#ffffff;--deep:#1d2b22;--deep-ink:#f4efe6;--line:#e8e0d3;--hero1:#1d2b22;--hero2:#3c5a45;--glow:rgba(214,178,94,.35);--head:'Cormorant Garamond',Georgia,serif}
+[data-theme="venue"]{--hero1:#1a1512;--hero2:#4a3a2a;--deep:#1a1512;--accent:#b08d3c;--glow:rgba(222,186,110,.35)}
+[data-theme="event"]{--bg:#fbf6f4;--hero1:#3a1424;--hero2:#7a3550;--deep:#3a1424;--accent:#c2788f;--line:#efdfe2;--glow:rgba(240,170,190,.35)}
+[data-theme="home"]{--bg:#f5f6f7;--hero1:#18222b;--hero2:#3b5568;--deep:#18222b;--accent:#d08a3c;--line:#dfe4e8;--glow:rgba(120,180,220,.30);--head:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.demo-bar{background:#111;color:#ddd;font-size:12px;text-align:center;padding:6px 12px;letter-spacing:.02em}
+.demo-bar b{color:#fff}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-family:var(--head);font-weight:700;font-size:22px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-accent{background:var(--accent);color:var(--accent-ink);box-shadow:0 8px 24px -8px var(--accent)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-sm{padding:9px 16px;font-size:14px}
+.hero{position:relative;color:#fff;background:radial-gradient(1200px 500px at 80% -10%,var(--glow),transparent 60%),linear-gradient(135deg,var(--hero1),var(--hero2));overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-top:96px;padding-bottom:104px;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.hero.has-photo::after{display:none}
+.hero.soft{background:#0d0b09}
+.hero.soft::before{content:"";position:absolute;inset:-24px;background:var(--hero-img) var(--hero-pos,center)/cover no-repeat;filter:blur(5px) saturate(1.15);transform:scale(1.04)}
+.hero.soft::after{display:block;background:linear-gradient(90deg,rgba(10,8,6,.88) 0%,rgba(10,8,6,.6) 50%,rgba(10,8,6,.35) 100%),linear-gradient(0deg,rgba(10,8,6,.6),transparent 45%);background-size:auto}
+.gallery.g3{grid-template-columns:2fr 1fr;grid-template-rows:220px 220px}
+.gallery.g4{grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px}
+.gallery.g4 .tile:nth-child(4){grid-column:span 2}
+@media (max-width:900px){.gallery.g3,.gallery.g4{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:180px}.gallery.g3 .tile:nth-child(1),.gallery.g4 .tile:nth-child(1){grid-column:span 2;grid-row:auto}.gallery.g4 .tile:nth-child(4){grid-column:auto}}
+.hero.has-photo .wrap{min-height:min(88vh,760px)}
+.hero.has-photo h1{text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.hero.has-photo .hero-card{background:rgba(12,10,8,.45);border-color:rgba(255,255,255,.22);backdrop-filter:blur(10px)}
+@media (max-width:900px){.hero.has-photo .wrap{min-height:auto}.hero.has-photo{background-position:center!important}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--head);font-weight:700;font-size:clamp(38px,6vw,68px);line-height:1.04;margin:18px 0 18px}
+.hero p.lead{font-size:18px;color:rgba(255,255,255,.82);max-width:560px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:28px;backdrop-filter:blur(6px)}
+.hero-card .big{font-family:var(--head);font-size:56px;font-weight:700;line-height:1}
+.stars{position:relative;display:inline-block;letter-spacing:3px;font-size:18px;margin:6px 0;line-height:1}
+.stars .bg{color:rgba(255,255,255,.28)}
+.stars .fg{position:absolute;left:0;top:0;overflow:hidden;white-space:nowrap;color:#f5c451}
+.hero-card small{color:rgba(255,255,255,.7)}
+.hero-card hr{border:0;border-top:1px solid rgba(255,255,255,.15);margin:20px 0}
+.offer-strip{background:var(--deep);color:var(--deep-ink)}
+.offer-strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px;flex-wrap:wrap}
+.offer-strip p{font-weight:600}
+.offer-strip p span{color:var(--accent);margin-right:8px}
+section{padding:88px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head .kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.sec-head h2{font-family:var(--head);font-size:clamp(30px,4vw,44px);line-height:1.1;margin-top:10px}
+.sec-head p{color:var(--muted);margin-top:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px}
+.feat .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);font-weight:700;margin-bottom:16px}
+.feat h3{font-size:16px;line-height:1.35}
+.services{display:flex;flex-wrap:wrap;gap:12px}
+.chip{padding:14px 22px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:600}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:14px;margin-top:44px}
+.tile{border-radius:18px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--hero2),var(--hero1));display:flex;align-items:flex-end;padding:18px;color:#fff;font-weight:600}
+.tile:nth-child(1){grid-row:span 2}
+.tile:nth-child(2){background:linear-gradient(160deg,var(--accent),var(--hero2))}
+.tile:nth-child(3){background:linear-gradient(200deg,var(--hero2),var(--deep))}
+.tile:nth-child(4){background:linear-gradient(120deg,var(--deep),var(--accent))}
+.tile:nth-child(5){background:linear-gradient(90deg,var(--hero1),var(--hero2))}
+.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 55%)}
+.tile span{position:relative;font-size:14px;letter-spacing:.04em;opacity:.9}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{padding:28px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.step b{font-family:var(--head);font-size:40px;color:var(--accent);line-height:1}
+.step h3{margin:10px 0 6px;font-size:18px}
+.step p{color:var(--muted);font-size:15px}
+.booking{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.booking h2{font-family:var(--head);font-size:clamp(30px,4vw,44px);line-height:1.1}
+.booking p{color:rgba(255,255,255,.8);margin-top:12px}
+.booking ul{list-style:none;margin-top:24px;display:grid;gap:10px;color:rgba(255,255,255,.85)}
+.booking li::before{content:"✓";color:var(--accent);margin-right:10px;font-weight:700}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:var(--surface);color:var(--ink);padding:26px;border-radius:20px}
+form label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+form .full{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:15px;color:var(--ink);padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+textarea{min-height:84px;resize:vertical}
+form .btn{width:100%}
+form .note{font-size:12px;color:var(--muted);text-align:center}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:stretch}
+.contact .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px;display:grid;gap:18px;align-content:start}
+.contact .row small{display:block;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.contact .row div{font-weight:600}
+.map{border-radius:20px;overflow:hidden;border:1px solid var(--line);min-height:320px}
+.map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+footer{background:var(--deep);color:var(--deep-ink);padding:36px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .made{opacity:.6}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.35)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#111;color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;display:none;z-index:40}
+@media (max-width:900px){
+ .hero .wrap{grid-template-columns:1fr;padding-top:64px;padding-bottom:72px}
+ .grid4{grid-template-columns:1fr 1fr}
+ .steps{grid-template-columns:1fr}
+ .booking{grid-template-columns:1fr;padding:28px}
+ .contact{grid-template-columns:1fr}
+ .nav-links{display:none}
+ .gallery{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px}
+ .tile:nth-child(1){grid-column:span 2;grid-row:auto}
+}
+@media (max-width:520px){
+ .grid4{grid-template-columns:1fr}
+ form{grid-template-columns:1fr}
+ section{padding:64px 0}
+ .wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar"><b>Demo önizleme</b> · Bu sayfa Yavuz Digital Media tarafından örnek olarak hazırlanmıştır.</div>
+<nav><div class="wrap">
+  <a class="brand" href="#top" id="brand"></a>
+  <div class="nav-links"><a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#randevu">Randevu</a><a href="#iletisim">İletişim</a></div>
+  <a class="btn btn-accent btn-sm" href="#randevu" id="navCta">Randevu Al</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="eyebrow" id="eyebrow"></span>
+    <h1 id="h1"></h1>
+    <p class="lead" id="lead"></p>
+    <div class="ctas">
+      <a class="btn btn-accent" href="#randevu" id="heroCta"></a>
+      <a class="btn btn-ghost" id="heroWa" target="_blank" rel="noopener">WhatsApp'tan Yazın</a>
+    </div>
+  </div>
+  <div class="hero-card" id="heroCard"></div>
+</div></header>
+
+<div class="offer-strip"><div class="wrap">
+  <p><span>●</span><span id="offer" style="color:inherit;margin:0"></span></p>
+  <a class="btn btn-accent btn-sm" href="#randevu">Hemen Bilgi Al</a>
+</div></div>
+
+<section id="hakkimizda"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Neden biz</div><h2 id="whyTitle"></h2><p id="whyText"></p></div>
+  <div class="grid4" id="features"></div>
+  <div class="gallery" id="gallery"></div>
+</div></section>
+
+<section id="hizmetler" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Hizmetlerimiz</div><h2 id="svcTitle"></h2></div>
+  <div class="services" id="services"></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Nasıl çalışıyoruz</div><h2>Rezervasyon süreci</h2></div>
+  <div class="steps" id="steps"></div>
+</div></section>
+
+<section id="randevu" style="padding-top:0"><div class="wrap">
+  <div class="booking">
+    <div>
+      <h2 id="bookTitle"></h2>
+      <p id="bookText"></p>
+      <ul id="bookList"></ul>
+    </div>
+    <form id="form" novalidate></form>
+  </div>
+</div></section>
+
+<section id="iletisim" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><div class="kicker">İletişim</div><h2>Bizi ziyaret edin</h2></div>
+  <div class="contact">
+    <div class="card" id="contactCard"></div>
+    <div class="map" id="map"></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div id="footName"></div>
+  <div class="made">Demo · Tasarım: Yavuz Digital Media</div>
+</div></footer>
+
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+<div class="toast" id="toast"></div>
+
+<script>
+const B = {"slug":"13-zen-vuslat-davet","heroSoft":true,"heroPos":"center 45%","name":"Zen Vuslat Düğün \u0026 Davet","theme":"venue","district":"Bayrampaşa","address":"Altıntepsi, Akpınar Cd. No:95/A, Bayrampaşa/İstanbul","wa":"905357031810","phone":"0535 703 18 10","rating":"","reviews":"","insta":"","tagline":"Sıradan bir etkinlik değil, unutulmaz bir anı","intro":"Düğün, nişan ve tüm özel davetlerinizde şıklığı ve konforu profesyonel organizasyonla buluşturuyoruz.","highlights":["Şık ve konforlu salon","Profesyonel organizasyon","Bayrampaşa Akpınar Caddesi\u0027nde","Düğün, nişan ve özel davetler"],"services":["Düğün","Nişan","Özel Davet"],"offer":"Tarih ve paket bilgisi için hemen yazın.","form":"venue","galleryLabels":["Canlı müzik","Salonumuz","Giriş","Sahne"],"hero":"kapak.jpg","photos":["1.jpg","2.jpg","3.jpg","4.jpg",""]};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const kind = B.form;
+const waBase = B.wa ? 'https://wa.me/' + B.wa : (B.insta || '#');
+const waText = t => B.wa ? waBase + '?text=' + encodeURIComponent(t) : waBase;
+
+$('brand').textContent = B.name;
+$('eyebrow').textContent = B.district + ' · İstanbul';
+$('h1').textContent = B.tagline;
+$('lead').textContent = B.intro;
+$('offer').textContent = B.offer;
+$('footName').textContent = B.name + ' · ' + B.address;
+
+const ctaLabel = kind === 'home' ? 'Ücretsiz Keşif Randevusu' : (kind === 'event' ? 'Teklif ve Tarih Sorgula' : 'Tarih Müsaitliği Sorgula');
+$('heroCta').textContent = ctaLabel;
+$('navCta').textContent = kind === 'home' ? 'Keşif Randevusu' : 'Tarih Sorgula';
+$('heroWa').href = waText('Merhaba, ' + B.name + ' hakkında bilgi almak istiyorum.');
+$('waFloat').href = $('heroWa').href;
+if (!B.wa) { $('heroWa').textContent = "Instagram'dan Yazın"; }
+
+let card = '';
+if (B.rating) {
+  const pct = Math.max(0, Math.min(100, parseFloat(String(B.rating).replace(',', '.')) / 5 * 100));
+  card += '<div class="big">' + esc(B.rating) + '</div><div class="stars" aria-label="5 üzerinden ' + esc(B.rating) + '"><span class="bg">★★★★★</span><span class="fg" style="width:' + pct.toFixed(1) + '%">★★★★★</span></div><br><small>Google\'da ' + esc(B.reviews) + ' değerlendirme</small><hr>';
+} else if (B.reviews) {
+  card += '<div class="big">' + esc(B.reviews) + '+</div><small>Google\'da müşteri değerlendirmesi</small><hr>';
+}
+card += '<div style="display:grid;gap:10px">' + B.highlights.slice(0, 3).map(h => '<div>✦ ' + esc(h) + '</div>').join('') + '</div>';
+$('heroCard').innerHTML = card;
+
+$('whyTitle').textContent = 'Öne çıkanlar';
+$('whyText').textContent = B.intro;
+$('features').innerHTML = B.highlights.map((h, i) => '<div class="feat"><div class="ic">0' + (i + 1) + '</div><h3>' + esc(h) + '</h3></div>').join('');
+
+const tiles = (B.galleryLabels && B.galleryLabels.length >= 3) ? B.galleryLabels : kind === 'home' ? ['Uygulama örnekleri', 'Malzeme', 'Detay', 'Önce / Sonra', 'Showroom'] : (kind === 'event' ? ['Konsept', 'Süsleme', 'Masa düzeni', 'Kına gecesi', 'Detaylar'] : ['Salonumuz', 'Sahne', 'Masa düzeni', 'Gelin girişi', 'Işık şovu']);
+const photos = B.photos || [];
+const real = photos.map((p, i) => [p, tiles[i]]).filter(x => x[0]);
+const tileHtml = (p, t) => '<div class="tile"' + (p ? ' style="background:linear-gradient(to top,rgba(0,0,0,.55),transparent 55%),url(\'' + p + '\') center/cover"' : '') + '><span>' + t + '</span></div>';
+if (real.length >= 3) {
+  $('gallery').classList.add('g' + Math.min(real.length, 5));
+  $('gallery').innerHTML = real.slice(0, 5).map(x => tileHtml(x[0], x[1])).join('');
+} else if (B.hero) {
+  $('gallery').remove();
+} else {
+  $('gallery').innerHTML = tiles.map(t => tileHtml('', t)).join('');
+}
+if (B.hero) {
+  const hero = document.querySelector('.hero');
+  hero.classList.add('has-photo');
+  if (B.heroSoft) {
+    hero.classList.add('soft');
+    hero.style.setProperty('--hero-img', 'url(\'' + B.hero + '\')');
+    hero.style.setProperty('--hero-pos', B.heroPos || 'center');
+  } else hero.style.backgroundImage ='linear-gradient(90deg,rgba(10,8,6,.86) 0%,rgba(10,8,6,.62) 45%,rgba(10,8,6,.25) 100%),linear-gradient(0deg,rgba(10,8,6,.55),transparent 40%),url(\'' + B.hero + '\')';
+  hero.style.backgroundSize = 'cover';
+  hero.style.backgroundPosition = B.heroPos || 'center';
+}
+
+$('svcTitle').textContent = kind === 'home' ? 'Neler yapıyoruz' : 'Organizasyonlarımız';
+$('services').innerHTML = B.services.map(s => '<span class="chip">' + esc(s) + '</span>').join('');
+
+const steps = kind === 'home'
+  ? [['Randevu talebi', 'Formdan hizmeti ve size uygun günü seçin.'], ['WhatsApp\'tan iletişim', 'Talebiniz doğrudan işletmenin WhatsApp hattına ulaşır.'], ['Görüşme ve teklif', 'Detayları konuşup size özel teklifi alın.']]
+  : [['Tarihinizi sorgulayın', 'Formdan tarih, organizasyon türü ve kişi sayısını girin.'], ['WhatsApp\'tan iletişim', 'Talebiniz doğrudan işletmenin WhatsApp hattına ulaşır.'], ['Bilgi ve fiyat alın', 'Müsaitlik ve paket detaylarını öğrenip kararınızı verin.']];
+$('steps').innerHTML = steps.map((s, i) => '<div class="step"><b>0' + (i + 1) + '</b><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div>').join('');
+
+$('bookTitle').textContent = kind === 'home' ? 'Online keşif randevusu' : 'Online tarih sorgulama';
+$('bookText').textContent = kind === 'home' ? 'Formu doldurun, randevu talebiniz doğrudan WhatsApp üzerinden bize ulaşsın.' : 'Telefonla uğraşmayın: tarihinizi ve kişi sayınızı girin, talebiniz anında bize ulaşsın.';
+$('bookList').innerHTML = (kind === 'home' ? ['Günün her saatinde randevu talebi', 'Telefonda beklemek yok', 'Talep doğrudan WhatsApp\'a ulaşır'] : ['Günün her saatinde tarih sorgulama', 'Telefonda beklemek yok', 'Talep doğrudan WhatsApp\'a ulaşır']).map(x => '<li>' + x + '</li>').join('');
+
+const today = new Date().toISOString().slice(0, 10);
+const svcOpts = B.services.map(s => '<option>' + esc(s) + '</option>').join('');
+$('form').innerHTML =
+  '<label>Ad Soyad<input name="ad" required placeholder="Adınız"></label>' +
+  '<label>Telefon<input name="tel" required inputmode="tel" placeholder="05xx xxx xx xx"></label>' +
+  '<label>' + (kind === 'home' ? 'Hizmet' : 'Organizasyon') + '<select name="tur">' + svcOpts + '</select></label>' +
+  (kind === 'home'
+    ? '<label>Tercih edilen gün<input type="date" name="tarih" min="' + today + '"></label>'
+    : '<label>Etkinlik tarihi<input type="date" name="tarih" min="' + today + '"></label><label class="full">Tahmini kişi sayısı<input name="kisi" inputmode="numeric" placeholder="Örn. 250"></label>') +
+  '<label class="full">Notunuz<textarea name="not" placeholder="' + (kind === 'home' ? 'Ölçü, adres veya istekleriniz' : 'Konsept, bütçe veya sorularınız') + '"></textarea></label>' +
+  '<button class="btn btn-accent full" type="submit">' + (kind === 'home' ? 'Randevu Talebi Gönder' : 'Müsaitlik Sor') + '</button>' +
+  '<div class="note full">Talebiniz WhatsApp üzerinden doğrudan işletmeye iletilir.</div>';
+
+$('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  if (!f.get('ad') || !f.get('tel')) { toast('Lütfen ad ve telefon girin.'); return; }
+  const lines = ['Merhaba, web sitenizden ' + (kind === 'home' ? 'randevu' : 'tarih') + ' talebi:', 'Ad: ' + f.get('ad'), 'Telefon: ' + f.get('tel'), (kind === 'home' ? 'Hizmet: ' : 'Organizasyon: ') + f.get('tur')];
+  if (f.get('tarih')) lines.push('Tarih: ' + f.get('tarih'));
+  if (f.get('kisi')) lines.push('Kişi sayısı: ' + f.get('kisi'));
+  if (f.get('not')) lines.push('Not: ' + f.get('not'));
+  window.open(waText(lines.join('\n')), '_blank');
+});
+function toast(t) { const el = $('toast'); el.textContent = t; el.style.display = 'block'; setTimeout(() => el.style.display = 'none', 2600); }
+
+let cc = '';
+if (B.phone) cc += '<div class="row"><small>Telefon</small><div><a href="tel:' + B.phone.replace(/\s/g, '') + '">' + esc(B.phone) + '</a></div></div>';
+cc += '<div class="row"><small>Adres</small><div>' + esc(B.address) + '</div></div>';
+if (B.insta) cc += '<div class="row"><small>Instagram</small><div><a href="' + esc(B.insta) + '" target="_blank" rel="noopener">@' + esc(B.insta.split('/').filter(Boolean).pop()) + '</a></div></div>';
+cc += '<a class="btn btn-accent" href="#randevu">' + ctaLabel + '</a>';
+$('contactCard').innerHTML = cc;
+$('map').innerHTML = '<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Harita" src="https://maps.google.com/maps?q=' + encodeURIComponent(B.name + ' ' + B.address) + '&output=embed"></iframe>';
+</script>
+</body>
+</html>
